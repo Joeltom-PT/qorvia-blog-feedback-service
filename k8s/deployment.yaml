@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-feedback-service-deployment
+  labels:
+    app: blog-feedback-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blog-feedback-service
+  template:
+    metadata:
+      labels:
+        app: blog-feedback-service
+    spec:
+      containers:
+        - name: blog-feedback-service
+          image: joeltompt/blog-feedback-service:latest
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: blog-feedback-service-secrets
