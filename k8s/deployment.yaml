@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: blog-feedback-service
-          image: joeltompt/blog-feedback-service:latest
+          image: joeltompt/qorvia-blog-feedback-service:latest
           ports:
             - containerPort: 8080
           envFrom:
